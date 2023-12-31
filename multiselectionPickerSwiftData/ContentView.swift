@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//start prolect to know issue 
 struct ContentView: View {
     var body: some View {
         VStack {
