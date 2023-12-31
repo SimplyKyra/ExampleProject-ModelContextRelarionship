@@ -14,6 +14,10 @@
 		4DE1182D2B412FEA00641A3D /* MainEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1182C2B412FEA00641A3D /* MainEntity.swift */; };
 		4DE1182F2B412FFE00641A3D /* SecondaryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1182E2B412FFE00641A3D /* SecondaryEntity.swift */; };
 		4DE118312B41301E00641A3D /* SharedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118302B41301E00641A3D /* SharedEntity.swift */; };
+		4DE118332B4135C400641A3D /* MultiSelectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118322B4135C400641A3D /* MultiSelectPickerView.swift */; };
+		4DE118352B41B82E00641A3D /* FirstTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118342B41B82E00641A3D /* FirstTab.swift */; };
+		4DE118372B41B83A00641A3D /* SecondTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118362B41B83A00641A3D /* SecondTab.swift */; };
+		4DE118392B41BA9D00641A3D /* ThirdTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118382B41BA9D00641A3D /* ThirdTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		4DE1182C2B412FEA00641A3D /* MainEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntity.swift; sourceTree = "<group>"; };
 		4DE1182E2B412FFE00641A3D /* SecondaryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryEntity.swift; sourceTree = "<group>"; };
 		4DE118302B41301E00641A3D /* SharedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedEntity.swift; sourceTree = "<group>"; };
+		4DE118322B4135C400641A3D /* MultiSelectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectPickerView.swift; sourceTree = "<group>"; };
+		4DE118342B41B82E00641A3D /* FirstTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTab.swift; sourceTree = "<group>"; };
+		4DE118362B41B83A00641A3D /* SecondTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTab.swift; sourceTree = "<group>"; };
+		4DE118382B41BA9D00641A3D /* ThirdTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,10 @@
 				4DE1181F2B409EDA00641A3D /* ContentView.swift */,
 				4DE118212B409EDA00641A3D /* Assets.xcassets */,
 				4DE118232B409EDA00641A3D /* Preview Content */,
+				4DE118322B4135C400641A3D /* MultiSelectPickerView.swift */,
+				4DE118342B41B82E00641A3D /* FirstTab.swift */,
+				4DE118362B41B83A00641A3D /* SecondTab.swift */,
+				4DE118382B41BA9D00641A3D /* ThirdTab.swift */,
 			);
 			path = multiselectionPickerSwiftData;
 			sourceTree = "<group>";
@@ -158,7 +170,11 @@
 				4DE118202B409EDA00641A3D /* ContentView.swift in Sources */,
 				4DE1182F2B412FFE00641A3D /* SecondaryEntity.swift in Sources */,
 				4DE1181E2B409EDA00641A3D /* multiselectionPickerSwiftDataApp.swift in Sources */,
+				4DE118392B41BA9D00641A3D /* ThirdTab.swift in Sources */,
+				4DE118372B41B83A00641A3D /* SecondTab.swift in Sources */,
+				4DE118332B4135C400641A3D /* MultiSelectPickerView.swift in Sources */,
 				4DE1182D2B412FEA00641A3D /* MainEntity.swift in Sources */,
+				4DE118352B41B82E00641A3D /* FirstTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
