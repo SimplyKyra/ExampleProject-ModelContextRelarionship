@@ -16,7 +16,7 @@ class SecondaryEntity {
     var mainEntity: MainEntity?
     @Relationship(deleteRule: .nullify, inverse: \SharedEntity.secondaryEntites) var sharedEnties: [SharedEntity]?
     
-    init(displayName: String = "", mainEntity: MainEntity? = nil, sharedEnties: [SharedEntity]? = nil) {
+    init(displayName: String = "", mainEntity: MainEntity? = nil, sharedEnties: [SharedEntity]? = [SharedEntity]()) {
         self.displayName = displayName
         self.mainEntity = mainEntity
         self.sharedEnties = sharedEnties

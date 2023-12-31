@@ -16,7 +16,7 @@ class MainEntity {
     @Relationship(deleteRule: .cascade, inverse: \SharedEntity.mainEntity) var sharedEntites: [SharedEntity]?
     @Relationship(deleteRule: .cascade, inverse: \SecondaryEntity.mainEntity) var secondaryEntities: [SecondaryEntity]?
     
-    init(displayName: String = "", sharedEntites: [SharedEntity]? = nil, secondaryEntities: [SecondaryEntity]? = nil) {
+    init(displayName: String = "", sharedEntites: [SharedEntity]? = [SharedEntity](), secondaryEntities: [SecondaryEntity]? = [SecondaryEntity]()) {
         self.displayName = displayName
         self.sharedEntites = sharedEntites
         self.secondaryEntities = secondaryEntities

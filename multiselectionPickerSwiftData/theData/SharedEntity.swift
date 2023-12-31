@@ -16,7 +16,7 @@ class SharedEntity {
     var mainEntity: MainEntity?
     var secondaryEntites: [SecondaryEntity]?
     
-    init(displayName: String = "", mainEntity: MainEntity? = nil, secondaryEntites: [SecondaryEntity]? = nil) {
+    init(displayName: String = "", mainEntity: MainEntity? = nil, secondaryEntites: [SecondaryEntity]? = [SecondaryEntity]()) {
         self.displayName = displayName
         self.mainEntity = mainEntity
         self.secondaryEntites = secondaryEntites

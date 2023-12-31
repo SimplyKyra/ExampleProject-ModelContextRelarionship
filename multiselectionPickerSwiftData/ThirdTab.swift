@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ThirdTab: View {
     var body: some View {
-        Text("Lets do the secondary items here.")
+        VStack {
+            Text("Lets do the secondary items here.")
+        }
+        .padding()
     }
 }
 
