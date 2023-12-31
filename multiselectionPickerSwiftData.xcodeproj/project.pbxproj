@@ -18,6 +18,7 @@
 		4DE118352B41B82E00641A3D /* FirstTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118342B41B82E00641A3D /* FirstTab.swift */; };
 		4DE118372B41B83A00641A3D /* SecondTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118362B41B83A00641A3D /* SecondTab.swift */; };
 		4DE118392B41BA9D00641A3D /* ThirdTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE118382B41BA9D00641A3D /* ThirdTab.swift */; };
+		4DE1183B2B41D56300641A3D /* EditSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1183A2B41D56300641A3D /* EditSecondary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		4DE118342B41B82E00641A3D /* FirstTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTab.swift; sourceTree = "<group>"; };
 		4DE118362B41B83A00641A3D /* SecondTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTab.swift; sourceTree = "<group>"; };
 		4DE118382B41BA9D00641A3D /* ThirdTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTab.swift; sourceTree = "<group>"; };
+		4DE1183A2B41D56300641A3D /* EditSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSecondary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				4DE118342B41B82E00641A3D /* FirstTab.swift */,
 				4DE118362B41B83A00641A3D /* SecondTab.swift */,
 				4DE118382B41BA9D00641A3D /* ThirdTab.swift */,
+				4DE1183A2B41D56300641A3D /* EditSecondary.swift */,
 			);
 			path = multiselectionPickerSwiftData;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				4DE1181E2B409EDA00641A3D /* multiselectionPickerSwiftDataApp.swift in Sources */,
 				4DE118392B41BA9D00641A3D /* ThirdTab.swift in Sources */,
 				4DE118372B41B83A00641A3D /* SecondTab.swift in Sources */,
+				4DE1183B2B41D56300641A3D /* EditSecondary.swift in Sources */,
 				4DE118332B4135C400641A3D /* MultiSelectPickerView.swift in Sources */,
 				4DE1182D2B412FEA00641A3D /* MainEntity.swift in Sources */,
 				4DE118352B41B82E00641A3D /* FirstTab.swift in Sources */,

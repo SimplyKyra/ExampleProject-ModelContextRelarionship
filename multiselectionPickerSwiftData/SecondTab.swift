@@ -18,7 +18,7 @@ struct SecondTab: View {
     // add shared entity
     @State private var newEntityName = ""
     
-    // Wrapping the sights array in a computed property to handle sorting for us.
+    // Wrapping the shared array in a computed property to handle sorting for us.
     var sortedSharedEntities: [SharedEntity] {
         (selectedEntity?.sharedEntites ?? [SharedEntity]()).sorted {
             $0.displayName < $1.displayName
