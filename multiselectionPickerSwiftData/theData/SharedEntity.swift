@@ -14,11 +14,11 @@ class SharedEntity {
     
     // Relationships
     var mainEntity: MainEntity?
-    var secondaryEntites: [SecondaryEntity]?
+    var secondaryEntities: [SecondaryEntity]?
     
-    init(displayName: String = "", mainEntity: MainEntity? = nil, secondaryEntites: [SecondaryEntity]? = [SecondaryEntity]()) {
+    init(displayName: String = "", mainEntity: MainEntity? = nil, secondaryEntities: [SecondaryEntity]? = [SecondaryEntity]()) {
         self.displayName = displayName
         self.mainEntity = mainEntity
-        self.secondaryEntites = secondaryEntites
+        self.secondaryEntities = secondaryEntities
     }
 }

@@ -19,18 +19,28 @@ struct FirstTab: View {
     
     var body: some View {
         VStack {
+            Button(action: {
+                for entity in allMainEntities {
+                    modelContext.delete(entity)
+                }
+            }, label: {
+                Text("Delete ALL")
+            })
+            Spacer()
             Text("Main Entites:")
             Divider()
             
-                HStack {
-                    TextField("Add a main entity", text: $newEntityName)
-                    Button("Add", action: addMainEntity)
-                }
-                
-                ForEach(allMainEntities) { thisMainEntity in
-                    Text(thisMainEntity.displayName)
-                }
-                .onDelete(perform: deleteMainEntities)
+            HStack {
+                TextField("Add a main entity", text: $newEntityName)
+                Button("Add", action: addMainEntity)
+            }
+            
+            
+            ForEach(allMainEntities) { thisMainEntity in
+                Text(thisMainEntity.displayName)
+            }
+            .onDelete(perform: deleteMainEntities)
+            Spacer()
         }
         .padding()
     }

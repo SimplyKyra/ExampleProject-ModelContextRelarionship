@@ -33,21 +33,22 @@ struct EditSecondary: View {
                 }
                 Section("Assigned Entities") {
                     NavigationLink(destination: {
-                        MultiSelectPickerView(modelContext: modelContext, mainEntity: secondaryEntity.mainEntity, selectedItems: $secondaryEntity.sharedEnties)
+                        MultiSelectPickerView(modelContext: modelContext, mainEntity: secondaryEntity.mainEntity, selectedItems: $secondaryEntity.sharedEntities)
+//                        MultiSelectPickerView(mainEntityID: secondaryEntity.mainEntity!.persistentModelID, in: modelContext.container, selectedItems: $secondaryEntity.sharedEntities)
                             .navigationTitle("Choose Assigned Colors")
                     }, label: {
                         HStack {
                             Text("Select Colors:").foregroundColor(.primary)
                             Spacer()
-                            Image(systemName: "\(secondaryEntity.sharedEnties?.count ?? 0).circle")
+                            Image(systemName: "\(secondaryEntity.sharedEntities?.count ?? 0).circle")
                                 .foregroundColor(.primary)
                                 .font(.title2)
                         }
                     })
-                    
-                    ForEach(secondaryEntity.mainEntity?.sharedEntites ?? [SharedEntity]()) { thisItem in
+//                    
+                    ForEach(secondaryEntity.mainEntity?.sharedEntities ?? [SharedEntity]()) { thisItem in
                         HStack {
-                            if secondaryEntity.sharedEnties?.first(where: { $0 == thisItem }) != nil {
+                            if secondaryEntity.sharedEntities?.first(where: { $0 == thisItem }) != nil {
                                 Text("HERE")
                             } else {
                                 Text("NOT")

@@ -13,12 +13,12 @@ class MainEntity {
     var displayName: String = ""
     
     // Relationships
-    @Relationship(deleteRule: .cascade, inverse: \SharedEntity.mainEntity) var sharedEntites: [SharedEntity]?
+    @Relationship(deleteRule: .cascade, inverse: \SharedEntity.mainEntity) var sharedEntities: [SharedEntity]?
     @Relationship(deleteRule: .cascade, inverse: \SecondaryEntity.mainEntity) var secondaryEntities: [SecondaryEntity]?
     
     init(displayName: String = "", sharedEntites: [SharedEntity]? = [SharedEntity](), secondaryEntities: [SecondaryEntity]? = [SecondaryEntity]()) {
         self.displayName = displayName
-        self.sharedEntites = sharedEntites
+        self.sharedEntities = sharedEntities
         self.secondaryEntities = secondaryEntities
     }
 }

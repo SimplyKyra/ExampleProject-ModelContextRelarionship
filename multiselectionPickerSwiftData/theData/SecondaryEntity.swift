@@ -14,11 +14,11 @@ class SecondaryEntity {
     
     // Relationships
     var mainEntity: MainEntity?
-    @Relationship(deleteRule: .nullify, inverse: \SharedEntity.secondaryEntites) var sharedEnties: [SharedEntity]?
+    @Relationship(deleteRule: .nullify, inverse: \SharedEntity.secondaryEntities) var sharedEntities: [SharedEntity]?
     
-    init(displayName: String = "", mainEntity: MainEntity? = nil, sharedEnties: [SharedEntity]? = [SharedEntity]()) {
+    init(displayName: String = "", mainEntity: MainEntity? = nil, sharedEntities: [SharedEntity]? = nil) {
         self.displayName = displayName
         self.mainEntity = mainEntity
-        self.sharedEnties = sharedEnties
+        self.sharedEntities = sharedEntities ?? [SharedEntity]()
     }
 }

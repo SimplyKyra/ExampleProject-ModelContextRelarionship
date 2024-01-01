@@ -20,7 +20,7 @@ struct SecondTab: View {
     
     // Wrapping the shared array in a computed property to handle sorting for us.
     var sortedSharedEntities: [SharedEntity] {
-        (selectedEntity?.sharedEntites ?? [SharedEntity]()).sorted {
+        (selectedEntity?.sharedEntities ?? [SharedEntity]()).sorted {
             $0.displayName < $1.displayName
         }
     }
