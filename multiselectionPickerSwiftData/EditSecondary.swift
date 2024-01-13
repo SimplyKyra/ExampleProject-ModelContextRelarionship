@@ -19,6 +19,14 @@ struct EditSecondary: View {
         modelContext = ModelContext(container)
         modelContext.autosaveEnabled = false
         secondaryEntity = modelContext.model(for: secondaryEntityID) as? SecondaryEntity ?? SecondaryEntity()
+//        for thisEntity in secondaryEntity.mainEntity?.sharedEntities ?? [SharedEntity]() {
+//            modelContext.model(for: thisEntity.persistentModelID) as?
+//        }
+//        print("Entity Model Context is: \(secondaryEntity.modelContext?.debugDescription ?? "unknown")")
+//        // todo same model for it's shared.... what about user shared
+//        print("First related Model Context is: \(secondaryEntity.mainEntity?.sharedEntities?.first?.modelContext.debugDescription ?? "unknown")")
+//        print("Are they the same? \(secondaryEntity.modelContext == secondaryEntity.mainEntity?.sharedEntities?.first?.modelContext ? "yes" : "no")")
+//        print("First related Model Context ID is: \(secondaryEntity.mainEntity?.sharedEntities?.first?.persistentModelID)")
         
     }
     
@@ -49,7 +57,7 @@ struct EditSecondary: View {
                     ForEach(secondaryEntity.mainEntity?.sharedEntities ?? [SharedEntity]()) { thisItem in
                         HStack {
                             if secondaryEntity.sharedEntities?.first(where: { $0 == thisItem }) != nil {
-                                Text("HERE")
+                                Text("Attachend")
                             } else {
                                 Text("NOT")
                             }

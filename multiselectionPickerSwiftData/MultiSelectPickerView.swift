@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct MultiSelectPickerView: View {
+    // https://stackoverflow.com/questions/77740750/swiftdata-issues-with-relationships-within-a-new-context-in-the-model-container
     var modelContext: ModelContext
 
     // The list of items we want to show
@@ -54,14 +55,24 @@ struct MultiSelectPickerView: View {
                 List {
                     ForEach(allItems, id: \.self) { item in
                         Button(action: {
+                            print("Pressed| \(item.displayName)")
                             withAnimation {
+                                print("\n\t--> Selected")
+                                print("selected count\(selectedItems?.count ?? -1)")
+                                print("Item Model Context is: \(item.modelContext?.debugDescription ?? "unknown")")
+                                // todo same model for it's shared.... what about user shared
+                                print("First related Model Context is: \(item.mainEntity?.sharedEntities?.first?.modelContext.debugDescription ?? "unknown")")
+                                print("Are they the same? \(item.modelContext == item.mainEntity?.sharedEntities?.first?.modelContext ? "yes" : "no")")
                                 // I think this is where it needs the same context
                                 if self.selectedItems!.contains(item) {
                                     // Previous comment: you may need to adapt this piece
-                                    self.selectedItems!.removeAll(where: { $0 == item })
+                                    print("REMOVING!")
+                                    self.selectedItems!.removeAll(where: { $0.id == item.id })
                                 } else {
+                                    print("ADDING!")
                                     self.selectedItems!.append(item)
                                 }
+                                print("AFTER")
                             }
                             // Force a save before editing so it's in the system on return
                             do {
@@ -75,6 +86,7 @@ struct MultiSelectPickerView: View {
                                 Image(systemName: "checkmark")
                                     .opacity(self.selectedItems!.contains(item) ? 1.0 : 0.0)
                                 Text(item.displayName)
+                                Text("Selected: \(self.selectedItems!.contains(item) ? "yes" : "no")")
                             }
                         }
                         .foregroundColor(.primary)
@@ -86,7 +98,13 @@ struct MultiSelectPickerView: View {
             if selectedItems == nil {
                 selectedItems = [SharedEntity]()
             }
-            allItems = mainEntity?.sharedEntities ?? [SharedEntity]()
+//            allItems = mainEntity?.sharedEntities ?? [SharedEntity]()
+            
+            for thisEntity in mainEntity?.sharedEntities ?? [SharedEntity]() {
+                if let thisModelEntity = modelContext.model(for: thisEntity.persistentModelID) as? SharedEntity {
+                    allItems.append(thisModelEntity)
+                }
+            }
         }
     }
 

@@ -65,6 +65,9 @@ struct SecondTab: View {
                 
             }
         }
+        .onAppear() {
+            selectedEntity = allMainEntities.first
+        }
         .padding()
     }
     

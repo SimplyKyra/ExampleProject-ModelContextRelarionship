@@ -69,6 +69,9 @@ struct ThirdTab: View {
             }
         }
         .padding()
+        .onAppear() {
+            selectedEntity = allMainEntities.first
+        }
         .sheet(item: $showEditEntity, content: { thisValue in
             EditSecondary(secondaryEntityID: thisValue.persistentModelID, in: modelContext.container)
         })
