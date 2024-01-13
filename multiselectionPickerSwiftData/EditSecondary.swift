@@ -41,7 +41,7 @@ struct EditSecondary: View {
                 }
                 Section("Assigned Entities") {
                     NavigationLink(destination: {
-                        MultiSelectPickerView(modelContext: modelContext, mainEntity: secondaryEntity.mainEntity, selectedItems: $secondaryEntity.sharedEntities)
+                        MultiSelectPickerView(modelContext: modelContext, mainEntity: secondaryEntity.mainEntity, secondaryEntity: secondaryEntity, allItems: .constant(secondaryEntity.mainEntity?.sharedEntities ?? [SharedEntity]()), selectedItems: $secondaryEntity.sharedEntities)
 //                        MultiSelectPickerView(mainEntityID: secondaryEntity.mainEntity!.persistentModelID, in: modelContext.container, selectedItems: $secondaryEntity.sharedEntities)
                             .navigationTitle("Choose Assigned Colors")
                     }, label: {

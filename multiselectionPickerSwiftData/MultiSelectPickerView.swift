@@ -13,10 +13,12 @@ struct MultiSelectPickerView: View {
     var modelContext: ModelContext
 
     // The list of items we want to show
-    @State var allItems: [SharedEntity] = [SharedEntity]()
+//    @State var allItems: [SharedEntity] = [SharedEntity]()
 
     // mainEntity to refresh the list of items
     @State var mainEntity: MainEntity?
+    @State var secondaryEntity: SecondaryEntity
+    @Binding var allItems: [SharedEntity]?
 
     // Binding to the selected items we want to track
     @Binding var selectedItems: [SharedEntity]?
@@ -30,7 +32,7 @@ struct MultiSelectPickerView: View {
 
     var body: some View {
         VStack {
-            if allItems.count == 0 {
+            if allItems?.count ?? 0 == 0 {
                 Text("There are no categories. Please add to begin.")
                     .padding([.leading, .trailing, .bottom], 5)
                     .multilineTextAlignment(.center)
@@ -53,7 +55,7 @@ struct MultiSelectPickerView: View {
 
             Form { // Looks prettier (edge beside List) with form
                 List {
-                    ForEach(allItems, id: \.self) { item in
+                    ForEach((allItems ?? [SharedEntity]()).sorted(by: { $0.displayName > $1.displayName }), id: \.self) { item in
                         Button(action: {
                             print("Pressed| \(item.displayName)")
                             withAnimation {
@@ -98,41 +100,49 @@ struct MultiSelectPickerView: View {
             if selectedItems == nil {
                 selectedItems = [SharedEntity]()
             }
+            if mainEntity == nil && allItems?.count ?? 0 > 0  {
+                print("Assigned mainEntity to...")
+                mainEntity = allItems?.first?.mainEntity
+                print(mainEntity?.displayName ?? "nil")
+            }
 //            allItems = mainEntity?.sharedEntities ?? [SharedEntity]()
             
-            for thisEntity in mainEntity?.sharedEntities ?? [SharedEntity]() {
-                if let thisModelEntity = modelContext.model(for: thisEntity.persistentModelID) as? SharedEntity {
-                    allItems.append(thisModelEntity)
-                }
-            }
+//            for thisEntity in mainEntity?.sharedEntities ?? [SharedEntity]() {
+//                if let thisModelEntity = modelContext.model(for: thisEntity.persistentModelID) as? SharedEntity {
+//                    allItems.append(thisModelEntity)
+//                }
+//            }
         }
     }
 
+    // Add doesn't seem to work... but it doesn't crash either. Leaving it for now.
     private func addSharedEntity() {
-        let _ = SharedEntity(displayName: newEntityName, mainEntity: mainEntity)
+        let thisItem = SharedEntity(displayName: newEntityName, mainEntity: mainEntity, secondaryEntities: [secondaryEntity])
         newEntityName = ""
         // Force a save before editing so it's in the system on return
+        print("About to save")
         do {
             try modelContext.save()
         } catch {
             print("Catch: \(error)")
         }
-        
-        allItems = mainEntity?.sharedEntities ?? [SharedEntity]()
+        print("After")
+//        mainEntity!.sharedEntities?.append(thisItem)
+//        allItems = mainEntity?.sharedEntities ?? [SharedEntity]()
     }
 }
 
-#Preview {
-    
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: SecondaryEntity.self, configurations: config)
-        
-        return MultiSelectPickerView(modelContext: container.mainContext, allItems: [SharedEntity](), mainEntity: MainEntity(displayName: "Example"), selectedItems: .constant([SharedEntity]()))
-    } catch {
-        fatalError("Failed to create model container.")
-    }
-}
+//#Preview {
+//    
+//    do {
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try ModelContainer(for: SecondaryEntity.self, configurations: config)
+//        
+//        return MultiSelectPickerView(modelContext: container.mainContext, allItems: .constant([SharedEntity]()), selectedItems: .constant([SharedEntity]()))
+//    } catch {
+//        fatalError("Failed to create model container.")
+//    }
+//}
 
 /*
  
