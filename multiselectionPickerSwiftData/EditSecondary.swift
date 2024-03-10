@@ -19,15 +19,6 @@ struct EditSecondary: View {
         modelContext = ModelContext(container)
         modelContext.autosaveEnabled = false
         secondaryEntity = modelContext.model(for: secondaryEntityID) as? SecondaryEntity ?? SecondaryEntity()
-//        for thisEntity in secondaryEntity.mainEntity?.sharedEntities ?? [SharedEntity]() {
-//            modelContext.model(for: thisEntity.persistentModelID) as?
-//        }
-//        print("Entity Model Context is: \(secondaryEntity.modelContext?.debugDescription ?? "unknown")")
-//        // todo same model for it's shared.... what about user shared
-//        print("First related Model Context is: \(secondaryEntity.mainEntity?.sharedEntities?.first?.modelContext.debugDescription ?? "unknown")")
-//        print("Are they the same? \(secondaryEntity.modelContext == secondaryEntity.mainEntity?.sharedEntities?.first?.modelContext ? "yes" : "no")")
-//        print("First related Model Context ID is: \(secondaryEntity.mainEntity?.sharedEntities?.first?.persistentModelID)")
-        
     }
     
     var body: some View {
@@ -41,8 +32,7 @@ struct EditSecondary: View {
                 }
                 Section("Assigned Entities") {
                     NavigationLink(destination: {
-                        MultiSelectPickerView(modelContext: modelContext, mainEntity: secondaryEntity.mainEntity, secondaryEntity: secondaryEntity, allItems: .constant(secondaryEntity.mainEntity?.sharedEntities ?? [SharedEntity]()), selectedItems: $secondaryEntity.sharedEntities)
-//                        MultiSelectPickerView(mainEntityID: secondaryEntity.mainEntity!.persistentModelID, in: modelContext.container, selectedItems: $secondaryEntity.sharedEntities)
+                        MultiSelectPickerView(modelContext: modelContext, allItems: .constant(secondaryEntity.mainEntity?.sharedEntities ?? [SharedEntity]()), selectedItems: $secondaryEntity.sharedEntities)
                             .navigationTitle("Choose Assigned Colors")
                     }, label: {
                         HStack {
